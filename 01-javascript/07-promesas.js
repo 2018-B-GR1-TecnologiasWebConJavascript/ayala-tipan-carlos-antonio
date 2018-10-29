@@ -44,7 +44,7 @@ nuevaPromesa(nombre)
     .then(
         (contenido) => {
             console.log(contenido);
-            return nuevaPromesaEscritura('07-ejemplo2.txt', contenido + 'Adios amigos');
+            return nuevaPromesaEscritura('07-ejemplo3.txt', contenido + 'Adios amigos');
         }
     )
     .then(
