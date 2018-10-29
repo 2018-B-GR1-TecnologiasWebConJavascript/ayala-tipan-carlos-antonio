@@ -1,9 +1,9 @@
 {
-  "nombre": "Jossué",
-  "edad": 22,
+  "nombre": "Carlos",
+  "edad": 23,
   "casado": null,
   "tieneHijos": false,
   "mascotas": {
-    "nombre": "Nevada"
+    "nombre": "Nicol"
   }
 }
