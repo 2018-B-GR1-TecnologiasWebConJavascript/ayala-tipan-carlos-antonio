@@ -5,5 +5,5 @@ module.exports = {
     multiplicar: (a, b) => a * b,
     dividir: (a, b) => a / b,
     version: '0.0.1',
-    autor: 'Adrian Eguez'
+    autor: 'Carlos Ayala'
 };
