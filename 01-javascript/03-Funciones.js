@@ -54,9 +54,9 @@ function saludar(nombre, funcion) {
     return `Hola ${funcion(nombre)}`;
 }
 
-console.log(saludar("jOsSUé", nombreMayusculas)); //mandar a la función como parámetro
-console.log(saludar("jOsSUé", nombreMinusculas)); //mandar a la función como parámetro
-console.log(saludar("jOsSUé", nombrepuntoAlFinal)); //mandar a la función como parámetro
+console.log(saludar("CaRloS", nombreMayusculas)); //mandar a la función como parámetro
+console.log(saludar("CaRloS", nombreMinusculas)); //mandar a la función como parámetro
+console.log(saludar("CaRloS", nombrepuntoAlFinal)); //mandar a la función como parámetro
 
 function nombreMayusculas(nombre) {
     return nombre.toUpperCase();
