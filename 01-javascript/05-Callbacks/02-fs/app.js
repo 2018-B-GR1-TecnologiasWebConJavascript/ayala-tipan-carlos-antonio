@@ -27,7 +27,7 @@ fs.readFile(nombreArchivo, 'utf-8',
             fs.writeFile(nombreArchivo, textoDelArchivoLeido + '\n' + contenidoArchivo,
                 (err) => {
                     if (err) throw err;
-                    console.log('Archiv');
+                    console.log('Archivo');
                     fs.writeFile(nombreArchivo, textoDelArchivoLeido + '\n' + contenidoArchivo,
                         (err) => {
                             if (err) throw err;
