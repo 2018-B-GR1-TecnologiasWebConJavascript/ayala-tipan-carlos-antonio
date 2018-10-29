@@ -11,16 +11,16 @@ var hijos = null; //object
 var dato; //undefined
 var fechaNacimiento  = new Date()
 
-var jossue = {
-    "nombre":"Jossue",
-    'segundoNombre':'Andrés',
-    apellidoPaterno: `Dután`,
-    apellidoMaterno: 'Salas',
-    edad: 22,
+var carlos = {
+    "nombre":"Carlos",
+    'segundoNombre':'Antonio',
+    apellidoPaterno: `Ayala`,
+    apellidoMaterno: 'Tipán',
+    edad: 23,
     casado: false,
     hijos: null,
     mascotas: {
-        nombre: "Cachetes"
+        nombre: "Nicol"
     }
 }
 
@@ -36,17 +36,17 @@ console.log("Hijos",typeof hijos)
 console.log("Dato",typeof dato)
 console.log("Fecha de Nacimiento",typeof fechaNacimiento);
 
-console.log(jossue.nombre);
-console.log(jossue.mascotas); //JSON de mascotas
-console.log(jossue.mascotas.nombre); //nombre de la mascota
-console.log(jossue); //imprime el JSON
+console.log(carlos.nombre);
+console.log(carlos.mascotas); //JSON de mascotas
+console.log(carlos.mascotas.nombre); //nombre de la mascota
+console.log(carlos); //imprime el JSON
 
-delete jossue.hijos; //borrar una propiedad al objeto JSON
-jossue.hija = {
+delete carlos.hijos; //borrar una propiedad al objeto JSON
+carlos.hija = {
     nombre: 'Elune'
 };
-console.log(jossue) //añadir una propiedad nueva
-console.log(jossue.abuelo)//undefined undefined.nombre = error
+console.log(carlos) //añadir una propiedad nueva
+console.log(carlos.abuelo)//undefined undefined.nombre = error
 
 if(true){
     console.log("sí")
