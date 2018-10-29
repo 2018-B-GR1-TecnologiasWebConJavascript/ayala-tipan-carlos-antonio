@@ -1,7 +1,7 @@
 var arreglo = [];
 
 arreglo = [
-    1, "Jossue", false, null, new Date(), {nombre: "Dután"}, [1, 2, true], undefined,
+    1, "Carlos", false, null, new Date(), {nombre: "Ayala"}, [1, 2, true], undefined,
 ];
 
 //acceso
