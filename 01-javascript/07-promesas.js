@@ -65,7 +65,7 @@ nuevaPromesa(nombre)
 //0-A.txt  'A'
 //1-B.txt  'B'
 //2-C.txt  'C'
-
+/*
 const respuesta={
     nombreArchivo:'',
     contenidoArchivo:'',
@@ -107,7 +107,7 @@ ejercicio(
     }
 );
 
-
+*/
 
 
 // ejercicio en clase
