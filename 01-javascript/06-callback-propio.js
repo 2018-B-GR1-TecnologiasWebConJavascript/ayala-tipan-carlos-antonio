@@ -1,8 +1,13 @@
 
 const fs = require('fs');
 
-function appendFile (nombreArchivo, contenido, callback) {
+function appendFile(nombreArchivo, contenido, callback) {
     // 1) Leer archivo
+    // 2.1) Si existe, le anado el contenido al contenido
+    //      del archivo
+    // 2.2) Si no existe, le creo al archivo con el contenido
+
+    // **Devuelvan el contenido completo del archivo**
     fs.readFile(
         nombreArchivo,
         'utf-8',
@@ -13,20 +18,21 @@ function appendFile (nombreArchivo, contenido, callback) {
                     contenido,
                     (err) => {
                         if (err) {
-                            callback(undefined,err)
+                            callback(undefined, err)
                         } else {
                             // Devolver el contenido
-                            callback(contenido)
+                            callback(contenido);
                         }
                     }
                 );
             } else {
+
                 fs.writeFile(
                     nombreArchivo,
                     contenidoLeidoDelArchivo + contenido,
                     (err) => {
                         if (err) {
-                            callback(undefined,err)
+                            callback(undefined, err);
                         } else {
                             // Devolver el contenido
                             callback(contenidoLeidoDelArchivo + contenido)
@@ -47,5 +53,4 @@ appendFile(
         } else {
             console.log(contenido);
         }
-
     });
