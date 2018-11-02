@@ -45,7 +45,7 @@ function appendFile(nombreArchivo, contenido, callback) {
 }
 
 appendFile(
-    '06-texto.txt',
+    '06-ejemplo.txt',
     '\nHola amigos',
     (contenido, err) => {
         if (err) {

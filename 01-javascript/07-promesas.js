@@ -1,5 +1,7 @@
+
 const fs = require('fs');
 const nombre = '06-ejemplo.txt';
+
 const nuevaPromesa = (nombreArchivo) => {
     return new Promise(
         (resolve, reject) => {
@@ -44,7 +46,7 @@ nuevaPromesa(nombre)
     .then(
         (contenido) => {
             console.log(contenido);
-            return nuevaPromesaEscritura('07-ejemplo3.txt', contenido + 'Adios amigos');
+            return nuevaPromesaEscritura('07-ejemplo2.txt', contenido + '\nAdios amigos');
         }
     )
     .then(
@@ -61,58 +63,86 @@ nuevaPromesa(nombre)
 
 
 
-//['A','B','C']
-//0-A.txt  'A'
-//1-B.txt  'B'
-//2-C.txt  'C'
-/*
-const respuesta={
-    nombreArchivo:'',
-    contenidoArchivo:'',
-    error:'',
+// ['A','B','C']
+
+// 0-A.txt    'A'
+// 1-B.txt    'B'
+// 2-C.txt    'C'
+
+const respuesta = {
+    nombreArchivo: '',
+    contenidoArchivo: '',
+    error: '',
 };
-[respuesta,respuesta,respuesta,respuesta]
-function ejercicio(arreglotrings,callback){
-    const respuestas=[];
-    arreglotrings
+
+
+function ejercicio(arregloStrings, callback) {
+
+    const respuestas = [];
+
+    arregloStrings
         .forEach(
-            (string, indice)=>{
-                const nombreArchivo=`${indice}-${string}.txt`;
+            (string, indice) => {
+                const nombreArchivo = `${indice}-${string}.txt`;
                 const contenido = string;
                 fs.writeFile(
                     nombreArchivo,
                     contenido,
-                    (err)=>{
-                        const respuesta={
-                            nombreArchivo:nombreArchivo,
-                            contenidoArchivo:contenido,
-                            error:err,
+                    (err) => {
+                        const respuesta = {
+                            nombreArchivo: nombreArchivo,
+                            contenidoArchivo: contenido,
+                            error: err,
                         };
                         respuestas.push(respuesta);
-                        const estaCompletoArreglo = respuetas.length===arreglotrings.length;
-                        if(estaCompletoArreglo){
+
+                        const estaCompletoElArreglo = respuestas.length === arregloStrings.length;
+
+                        if (estaCompletoElArreglo) {
                             callback(respuestas);
                         }
-                    }
-                )
 
+                    }
+                );
             }
         )
+
+    /*
+        // SCOPES
+        for (let i = 0; i < arregloStrings.length; i++) {
+            fs.writeFile(
+                `${i}-${arregloStrings[i]}.txt`,
+                arregloStrings[i],
+                (err)=>{
+                    const respuesta = {
+                        nombreArchivo: `${i}-${arregloStrings[i]}.txt`,
+                        contenidoArchivo: arregloStrings[i],
+                        error: err,
+                    };
+                    respuestas.push(respuesta);
+                    const estaCompletoElArreglo = respuestas.length === arregloStrings.length;
+                    if (estaCompletoElArreglo) {
+                        callback(respuestas);
+                    }
+                }
+            );
+        }
+    */
+
 }
 
+
 ejercicio(
-    ['A','B','C'],
-    (respuetaEjercicio)=>{
-        console.log(respuetaEjercicio);
+    ['A', 'B', 'C'],
+    (respuestaEjercicio) => {
+        console.log(respuestaEjercicio);
     }
 );
 
-*/
 
 
 // ejercicio en clase
-
-const appendFile = (nombreArchivo, contenido) => {
+const appendFile2 = (nombreArchivo, contenido) => {
     return new Promise(
         (resolve, reject) => {
             fs.readFile(
@@ -125,14 +155,15 @@ const appendFile = (nombreArchivo, contenido) => {
                             contenido,
                             (err) => {
                                 if (err) {
-                                    reject(err);
+                                    reject(err)
                                 } else {
                                     // Devolver el contenido
-                                    resolve(contenido)
+                                    resolve(contenido);
                                 }
                             }
                         );
                     } else {
+
                         fs.writeFile(
                             nombreArchivo,
                             contenidoLeidoDelArchivo + contenido,
@@ -141,7 +172,7 @@ const appendFile = (nombreArchivo, contenido) => {
                                     reject(err);
                                 } else {
                                     // Devolver el contenido
-                                    resolve(contenidoLeidoDelArchivo + contenido)
+                                    resolve(contenido)
                                 }
                             }
                         )
@@ -150,15 +181,13 @@ const appendFile = (nombreArchivo, contenido) => {
             );
         }
     )
-
 }
 
-
-appendFile(nombre)
+appendFile2('07-ejemplo3.txt',
+    '\nHola amigos2')
     .then(
         (contenido) => {
             console.log(contenido);
-            return nuevaPromesaEscritura('07-ejemplo2.txt', contenido + 'Adios amigos');
         }
     )
     .catch(
@@ -166,4 +195,3 @@ appendFile(nombre)
             console.log('Catch',error);
         }
     );
-
