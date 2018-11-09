@@ -1,11 +1,24 @@
 // 02-observables.ts
 const rxjs = require('rxjs');
 const map = require('rxjs/operators').map;
-const distintc = require('rxjs/operators').distinct();
+const distinct = require('rxjs/operators').distinct;
+const concat = require('rxjs/operators').concat;
 const numeros$ = rxjs.of(1, "Carlos", "Carlos", 1, true, true, 1, { nombre: 'Carlos' }, 1, [1, 2, 3], new Date());
+const promesita = (correcto) => {
+    return new Promise((resolve, reject) => {
+        if (correcto) {
+            resolve(':)');
+        }
+        else {
+            reject(':(');
+        }
+    });
+};
+const promesita$ = rxjs.from(promesita(true));
 console.log(numeros$);
 numeros$
-    .pipe(distintc(), map((valorActual) => {
+    .pipe(concat(promesita$))
+    .pipe(distinct(), map((valorActual) => {
     return { data: valorActual };
 }))
     /*
@@ -21,3 +34,17 @@ numeros$
 }, () => {
     console.log('Completado');
 });
+/*
+promesita$
+    .subscribe(
+        (ok) => {
+            console.log('En promesita', ok)
+        },
+        (error) => {
+            console.log('Error en promesita', error)
+        },
+        () => {    // complete
+            console.log('Completado')
+        }
+    )
+*/ 

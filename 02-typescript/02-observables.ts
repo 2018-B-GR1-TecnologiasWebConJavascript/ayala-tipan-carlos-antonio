@@ -3,7 +3,8 @@
 declare var require: any;
 const rxjs = require('rxjs');
 const map = require('rxjs/operators').map;
-const distintc = require('rxjs/operators').distinct();
+const distinct = require('rxjs/operators').distinct;
+const concat = require('rxjs/operators').concat;
 
 const numeros$  = rxjs.of(
     1,
@@ -19,12 +20,31 @@ const numeros$  = rxjs.of(
     new Date()
 );
 
+const promesita = (correcto) => {
+    return new Promise(
+        (resolve,reject) => {
+            if (correcto) {
+                resolve(':)');
+            } else {
+                reject(':(');
+            }
+
+        }
+    );
+};
+
+
+const promesita$ = rxjs.from(promesita(true));
+
 console.log(numeros$);
 
 
 numeros$
     .pipe(
-        distintc(),
+        concat(promesita$)
+    )
+    .pipe(
+        distinct(),
         map(
             (valorActual) => {
                 return {data: valorActual};
@@ -50,15 +70,17 @@ numeros$
     )
 
 
-const promesita = (correcto) => {
-    return new Promise(
-        (resolve,reject) => {
-            if (correcto) {
-                resolve(':)');
-            } else {
-                reject(':(');
-            }
-
+/*
+promesita$
+    .subscribe(
+        (ok) => {
+            console.log('En promesita', ok)
+        },
+        (error) => {
+            console.log('Error en promesita', error)
+        },
+        () => {    // complete
+            console.log('Completado')
         }
-    );
-}
+    )
+*/
