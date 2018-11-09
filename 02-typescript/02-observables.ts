@@ -35,13 +35,15 @@ const promesita = (correcto) => {
 
 
 const promesita$ = rxjs.from(promesita(true));
+const promesitaNoOk$ = rxjs.from(promesita(true));
 
 console.log(numeros$);
 
 
 numeros$
     .pipe(
-        concat(promesita$)
+        concat(promesitaNoOk$),    // reject
+        concat(promesita$)         // resolve
     )
     .pipe(
         distinct(),
