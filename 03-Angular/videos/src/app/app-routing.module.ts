@@ -7,6 +7,11 @@ import {Ruta404Component} from "./rutas/ruta404/ruta404.component";
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'inicio'
+  },
+  {
     // NOMBRE
     path: 'inicio',
     // PATH
@@ -23,6 +28,10 @@ const routes: Routes = [
   {
     path: 'no-encontrado',
     component: Ruta404Component
+  },
+  {
+    path: '**',
+    redirectTo: 'no-encontrado'
   },
 ];
 
