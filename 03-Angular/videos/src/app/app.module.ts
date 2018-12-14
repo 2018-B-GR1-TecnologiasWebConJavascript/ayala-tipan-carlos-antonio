@@ -33,7 +33,7 @@ export class AppModule { }
 
 /*
 -> Componente Principal
-  <router-outlet></router-outlet>
+  <router-outlet></router-outlet>    // para meter rutas
     -> *Inicio  -> inicio
     -> *Login
     -> *Perfil
