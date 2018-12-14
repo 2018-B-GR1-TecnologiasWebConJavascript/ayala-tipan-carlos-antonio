@@ -8,6 +8,8 @@ import { RutaPerfilComponent } from './rutas/ruta-perfil/ruta-perfil.component';
 import { Ruta404Component } from './rutas/ruta404/ruta404.component';
 import { RutaLoginComponent } from './rutas/ruta-login/ruta-login.component';
 import { RutaMenuComponent } from './rutas/ruta-menu/ruta-menu.component';
+import { RutaGestionUsuariosComponent } from './rutas/ruta-gestion-usuarios/ruta-gestion-usuarios.component';
+import { RutaGestionProductosComponent } from './rutas/ruta-gestion-productos/ruta-gestion-productos.component';
 
 @NgModule({
   declarations: [
@@ -16,37 +18,46 @@ import { RutaMenuComponent } from './rutas/ruta-menu/ruta-menu.component';
     RutaPerfilComponent,
     Ruta404Component,
     RutaLoginComponent,
-    RutaMenuComponent
-  ],          // Web Components
+    RutaMenuComponent,
+    RutaGestionUsuariosComponent,
+    RutaGestionProductosComponent
+  ],  // Components
   imports: [
     BrowserModule,
     AppRoutingModule
-  ],               // Módulos
-  providers: [],                // Servicios
-  bootstrap: [AppComponent]     // Componente principal
+  ],  // Modulos
+  providers: [], // Servicios
+  bootstrap: [AppComponent] // Componente Principal
 })
 export class AppModule { }
 
 
 
-
-
 /*
+
 -> Componente Principal
-  <router-outlet></router-outlet>    // para meter rutas
+
+  <router-outlet></router-outlet>
     -> *Inicio  -> inicio
     -> *Login
     -> *Perfil
     -> *Menu -> menu/
+
      <router-outlet></router-outlet>
         -> Gestion Usuarios ->
+
             <router-outlet></router-outlet>
             menu/gestion-usuarios/crear-usuarios
             -> Crear usuarios
             -> Actualizar Usuarios
+
         -> Gestion Productos
+
             -> Crear productos
             -> Actualizar productos
+
+
     -> *404 -> Not Found
+
 *
 * */

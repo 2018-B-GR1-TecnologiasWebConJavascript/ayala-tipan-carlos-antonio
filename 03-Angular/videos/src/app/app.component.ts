@@ -1,3 +1,4 @@
+
 // const Component = require('@angular/core').Component
 import {Component} from '@angular/core'; // TS
 import {} from 'http-server'; //Js
@@ -19,6 +20,7 @@ export class AppComponent {
   metodo(
     @Propiedad() nombre:string
   ){
+
   }
   */
 }
