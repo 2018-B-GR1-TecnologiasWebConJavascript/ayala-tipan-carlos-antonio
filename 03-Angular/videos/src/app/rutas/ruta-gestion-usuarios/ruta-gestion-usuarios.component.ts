@@ -10,31 +10,22 @@ export class RutaGestionUsuariosComponent implements OnInit {
 
   usuarios = [];
 
-  // Inyección de Dependencias
+  // Inyeccion de Dependencias
   constructor(
-    private readonly _usuarioService:UsuarioServiceService
+    private readonly _usuarioService: UsuarioServiceService
   ) {
 
   }
 
   ngOnInit() {
-    this._usuarioService.usuarios;
+    this.usuarios = this._usuarioService.usuarios;
   }
 
-  // hola() {
-  //   return 'Hola';
-  // }
 
   eliminar(usuario) {
-    this._usuarioService.eliminar(usuario.id);
 
+    this._usuarioService.eliminar(usuario.id);
 
   }
 
 }
-
-interface Usuario {
-  nombre?: string;
-  id?: number;
-}
-

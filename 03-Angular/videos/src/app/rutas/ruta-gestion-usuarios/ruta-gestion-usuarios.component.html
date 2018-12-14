@@ -18,6 +18,13 @@
       <button (click)="eliminar(usuario)">
         Eliminar
       </button>
+
+      <!-- Property Binding [propiedad] -->
+      <a [routerLink]="['/menu','ver-usuario',usuario.id]">
+        <button >
+          Ver
+        </button>
+      </a>
     </td>
   </tr>
 
