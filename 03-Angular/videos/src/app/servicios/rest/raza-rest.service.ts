@@ -42,8 +42,9 @@ export class RazaRestService {
       .pipe(map(r => <Raza> r)); // Castear
   }
 
-  findOneById(id:number | string): Observable<Raza> {
-    const url = environment.url + this.nombreModelo + '/' +id;
+  findOneById(id: number | string): Observable<Raza> {
+    const url = environment.url + this.nombreModelo
+      + '/' + id;
 
     return this._httpClient
       .get(url)
@@ -51,11 +52,14 @@ export class RazaRestService {
   }
 
   updateOneById(raza: Raza) {
-    const url = environment.url + this.nombreModelo + '/' + raza.id;
+
+    const url = environment.url + this.nombreModelo
+      + '/' + raza.id;
 
     return this._httpClient
       .put(url, raza)
       .pipe(map(r => <Raza> r)); // Castear
+
   }
 
 
