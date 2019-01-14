@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {UsuarioInterface, UsuarioServiceService} from "../../servicios/usuario-service.service";
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {UsuarioServiceService} from '../../servicios/usuario-service.service';
+import {ActivatedRoute, Route} from '@angular/router';
+import {UsuarioInterface} from '../../servicios/usuario-service.service';
+
 
 @Component({
   selector: 'app-ruta-ver-detalle-usuario',
@@ -9,26 +11,28 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class RutaVerDetalleUsuarioComponent implements OnInit {
 
-  usuario:UsuarioInterface
+  usuario: UsuarioInterface;
 
   constructor(
     private readonly _usuarioService: UsuarioServiceService,
     private readonly _route: ActivatedRoute, // RouterModule
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
-    const rutaActiva$ = this._route.params;
 
+    const rutaActiva$ = this._route.params;
     // INICIO
     rutaActiva$
-      .subscribe(   // ASYNC
+      .subscribe( // ASYNC
         (parametros) => {
-          //console.log(parametros);   // devuelve un JSON con el nombre de la ruta que se puso, por eso sale idUsuario:"1"
-          const usuarioEncontrado = this._usuarioService.buscarPorId(+parametros.idUsuario);
 
-          //console.log(usuarioEncontrado);
+          // parametros ->  {idUsuario:"1"}
+          const usuarioEncontrado = this._usuarioService
+            .buscarPorId(+parametros.idUsuario);
 
           this.usuario = usuarioEncontrado;
+
         }
       );
     // FIN

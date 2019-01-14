@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -8,17 +8,18 @@ export class UsuarioServiceService {
   usuarios: UsuarioInterface[] = [
     {
       id: 1,
-      nombre: 'Carlos'
+      nombre: 'Adrian'
     },
     {
       id: 2,
-      nombre: 'Ayala'
+      nombre: 'Vicente'
     }
   ];
 
   registroActual = 3; // RECNUM -> Record Number
 
-  constructor() { }
+  constructor() {
+  }
 
   crear(nuevoUsuario: UsuarioInterface): UsuarioInterface {
 
@@ -29,7 +30,7 @@ export class UsuarioServiceService {
     return nuevoUsuario;
   }
 
-  eliminar(id: number) {
+  eliminar(id: number): UsuarioInterface {
     const indiceUsuario = this.usuarios
       .findIndex(
         (usuario) => {
@@ -60,15 +61,13 @@ export class UsuarioServiceService {
     return usuarioActualizado;
   }
 
-  buscarPorId(id:number) {
+  buscarPorId(id: number): UsuarioInterface {
     return this.usuarios
-      .find((usuario)=> usuario.id ===id);
+      .find((usuario) => usuario.id === id);
   }
 
+
 }
-
-
-
 
 export interface UsuarioInterface {
   nombre?: string;

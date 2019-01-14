@@ -5,68 +5,105 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
-// http://localhost:1337/Raza/holaMundo         ----- para acceder
+// http://localhost:1337/Raza/holaMundo
+// http://localhost:1337/Usuario/registrar
+
+// expressjs
 
 module.exports = {
 
-  holaMundo: (peticion, respuesta) => {
-    return respuesta.send('ok')
-  }
-  
+  holaMundo: function (peticion, respuesta) {
+    return respuesta.ok('ok');
+  },
+  buscarPorNombre: async function (req, res) {
+    // TENER ACCESO A TODOS LOS MODELOS
+    // Body Query
+    const parametros = req.allParams();
+
+    var nombreCac = await Raza.find({
+      nombre: {'startsWith': parametros.nombre}
+    });
+
+    return res.ok(nombreCac);
+
+  },
 
 };
 
+
 // ESTANDAR RESTFULL
+
 // MODELO: Raza
 
-// Find ->
+// Find Many->
 // http://localhost:1337/Raza
 // METODO HTTP: GET
+
+
+// Find by ... ->
+// http://localhost:1337/Raza?nombre=Carlos
+// METODO HTTP: GET
+
 
 // Create ->
 // http://localhost:1337/Raza
 // METODO HTTP: POST
-// Parametros
+// Parametros -> Body (Formulario)
 
 // Update ->
 // http://localhost:1337/Raza/id
-// http://localhost:1337/Raza/1
+// http://localhost:1337/Raza/10
 // METODO HTTP: PUT
 // Parametros
 
+
 // Delete ->
 // http://localhost:1337/Raza/id
-// http://localhost:1337/Raza/1
+// http://localhost:1337/Raza/10
 // METODO HTTP: DELETE
 
-// Find One ->
+
+// Find One by ID ->
 // http://localhost:1337/Raza/id
-// http://localhost:1337/Raza/1
+// http://localhost:1337/Raza/10
 // METODO HTTP: GET
+
 
 // Query Params
 // AL FINAL DEL URL
 // ? Empieza
 // & Se separa
-// http://localhost:1337/Raza?nombre=Carlos&apellido=Ayala
+// http://localhost:1337/Raza?nombre=Adrian&apellido=Eguez
 // TODOS LOS METODOS HTTP
 
 // Route Params
 // Dinamicos
-// http://localhost:1337/Raza/1/casa/2/cuarto/13
+// http://localhost:1337/Raza/4/casa/5/cuarto/6
 // TODOS LOS METODOS HTTP
 
-// Forms Params (Body Params)
-// TODOS LOS METODOS HTTP EXCEPTO! METODO GET!!!
-// JS
-// <form>
-//  <input type="text" name="nombre" value="Carlos"
-//  <input type="text" name="apellido" value="Ayala"
-// </ form>
+// Form Params  (Body Params)
+// NO SIRVE EN EL METODO "GET"
 
-// Codigos de estado -> status code
-// 1XX -> informacion
-// 2XX -> exito
-// 3XX -> redireccion
-// 4XX -> error del cliente
-// 5XX -> error del servidor
+// JS
+
+// <form>
+// <input type="text" name="nombre" value="Adrian">
+// <input type="text" name="apellido" value="Eguez">
+// </form>
+
+
+//
+
+// Codigos de estado -> Status Code
+
+// 1XX  -> Informacion
+// 2XX  -> Exito
+// 3XX  -> Redireccion
+// 4XX  -> Error del CLIENTE
+// 5XX  -> Error del SERVIDOR
+
+
+
+
+
+

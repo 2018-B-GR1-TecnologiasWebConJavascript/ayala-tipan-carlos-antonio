@@ -27,9 +27,9 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/video-backend.git"
+    "url": "git://github.com/usrdel/video-backend.git"
   },
-  "author": "anonymous node/sails user",
+  "author": "usrdel",
   "license": "",
   "engines": {
     "node": "^8.11"

@@ -1,6 +1,11 @@
 <h3>Gestion Usuarios</h3>
 <p>Gestione sus usuarios.</p>
 
+
+<a routerLink="/menu/crear-raza">
+  <button>Crear raza</button>
+</a>
+
 <table>
   <!-- tr -> table row  -->
   <tr>
@@ -18,13 +23,19 @@
       <button (click)="eliminar(usuario)">
         Eliminar
       </button>
-
-      <!-- Property Binding [propiedad] -->
-      <a [routerLink]="['/menu','ver-usuario',usuario.id]">
-        <button >
+      <!-- Property Binding [propiedad] Js    -->
+      <a [routerLink]="
+      ['/menu','ver-usuario',usuario.id]">
+        <!--
+        /menu/ver-usuario/usuario.id
+        url -> arreglo
+        ['/menu','ver-usuario',usuario.id]
+         -->
+        <button>
           Ver
         </button>
       </a>
+
     </td>
   </tr>
 
