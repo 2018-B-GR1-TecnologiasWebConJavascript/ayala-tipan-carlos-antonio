@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-formulario-raza',
@@ -7,9 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioRazaComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  nombre: string;
+
+  @Input()
+  nombreBoton: string;
+
+  @Output()
+  formularioValido = new EventEmitter();
+
+  nombreRaza: string;
+
+  constructor() {
+  }
 
   ngOnInit() {
+    this.nombreRaza = this.nombre;
+  }
+
+  emitirFormularioValido(){
+    const objetoRaza = {
+      nombre:this.nombreRaza
+    };
+    this.formularioValido.emit(objetoRaza);
   }
 
 }
