@@ -9,12 +9,12 @@
         El nombre es requerido
       </span>
     </p>
-    <label for="nombre">Nombre</label>
+    <label for="nombre">Nombre Raza</label>
     <input id="nombre"
            required
            type="text"
            name="nombre"
-           [(ngModel)]="razaAActualizar.nombre"
+           [(ngModel)]="nombreRaza"
            #inputNombre="ngModel"
     >
   </div>
@@ -22,3 +22,5 @@
   <button [disabled]="formularioActualizarRaza.invalid">
     Actualizar
   </button>
+  
+</form>

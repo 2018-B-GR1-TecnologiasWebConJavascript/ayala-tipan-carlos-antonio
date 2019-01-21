@@ -1,6 +1,7 @@
 <h1>Actualizar raza</h1>
 
 <div *ngIf="razaAActualizar">
+  <!--
   <form #formularioActualizarRaza="ngForm"
         novalidate
         (submit)="actualizarRaza(formularioActualizarRaza)"
@@ -22,9 +23,18 @@
       >
     </div>
 
+
     <button [disabled]="formularioActualizarRaza.invalid">
       Actualizar
     </button>
   </form>
+  -->
+
+  <app-formulario-raza
+    [nombre]="razaAActualizar.nombre"
+    [nombreBoton]="'Actualizar'"
+    (formularioValido)="actualizarRaza($event)"
+  >
+  </app-formulario-raza>
 </div>
 
