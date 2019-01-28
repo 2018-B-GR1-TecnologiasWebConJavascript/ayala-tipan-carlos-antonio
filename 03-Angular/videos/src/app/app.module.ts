@@ -14,12 +14,17 @@ import {UsuarioServiceService} from './servicios/usuario-service.service';
 import {RutaVerDetalleUsuarioComponent} from './rutas/ruta-ver-detalle-usuario/ruta-ver-detalle-usuario.component';
 import {HttpClientModule} from '@angular/common/http';
 import {RazaRestService} from './servicios/rest/raza-rest.service';
-import { RutaCrearRazaComponent } from './rutas/ruta-crear-raza/ruta-crear-raza.component';
+import {RutaCrearRazaComponent} from './rutas/ruta-crear-raza/ruta-crear-raza.component';
 import {FormsModule} from '@angular/forms';
-import { RutaActualizarRazaComponent } from './rutas/ruta-actualizar-raza/ruta-actualizar-raza.component';
-import { ImagenPeliculaComponent } from './componentes/imagen-pelicula/imagen-pelicula.component';
-import { FormularioRazaComponent } from './componentes/formulario-raza/formulario-raza.component';
-import { LoginComponent } from './componentes/login/login.component';
+import {RutaActualizarRazaComponent} from './rutas/ruta-actualizar-raza/ruta-actualizar-raza.component';
+import {ImagenPeliculaComponent} from './componentes/imagen-pelicula/imagen-pelicula.component';
+import {FormularioRazaComponent} from './componentes/formulario-raza/formulario-raza.component';
+import {LoginComponent} from './componentes/login/login.component';
+import {AuthService} from './servicios/rest/auth.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
+import {CardModule, ChartModule, InputTextModule, MessageModule, MessagesModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -39,14 +44,23 @@ import { LoginComponent } from './componentes/login/login.component';
     LoginComponent
   ],  // Components
   imports: [
-    BrowserModule,
+    BrowserModule, // -> NGIF NGFOR NGCLASS ....
     AppRoutingModule,
     HttpClientModule,  // Acceso a un servicio HttpClient
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // Animaciones
+    ButtonModule,
+    TableModule,
+    InputTextModule,
+    MessagesModule,
+    MessageModule,
+    CardModule,
+    ChartModule
   ],  // Modulos
   providers: [
     UsuarioServiceService,
-    RazaRestService
+    RazaRestService,
+    AuthService
   ], // Servicios
   bootstrap: [AppComponent] // Componente Principal
 })
