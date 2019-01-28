@@ -5,9 +5,16 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
+// onoff -> -> -> -> -> -> raspberry -> -> -> ->
 module.exports = {
+  saludo: (req, res) => {
+    const parametros = req.allParams();
 
-  
+    return res.ok({
+      saludo: `Hola ${parametros.saludo} son las ${new Date().toDateString()}`
+    })
+
+  }
 
 };
 

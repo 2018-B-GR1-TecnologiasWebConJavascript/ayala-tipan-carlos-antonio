@@ -27,4 +27,17 @@ module.exports.bootstrap = async function() {
   // ]);
   // ```
 
+  function emitirTemperatura() {
+    setTimeout(
+      () => {
+        const temperatura = new Date().toTimeString();
+
+        console.log(temperatura);
+
+        emitirTemperatura();
+      },
+      2000
+    )
+  }
+
 };
