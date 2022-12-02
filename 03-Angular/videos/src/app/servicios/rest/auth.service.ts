@@ -25,7 +25,7 @@ export class AuthService {
   login(username: string,
         password: string): Observable<Raza> {
 
-    const url = environment.url + '/raza/login';
+    const url = environment.url + '/usuario/login';
 
     return this._httpClient
       .post(url, {
